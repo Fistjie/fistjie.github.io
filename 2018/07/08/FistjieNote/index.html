@@ -5,15 +5,19 @@
   
 
   
-  <title>Hexo</title>
+  <title>FistjieNote | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="JSP中的内置对象 是web对象创建的对象，不需要我们自己创建对象，名称是JSP的保留字，一共有九个内置对象  REQUEST(要考虑乱码问题)(请求) 实现HttpServletRequest接口   getParameter:返回字符串，从一个post表单中，当你确定这个数据只有一个数值的时候，可以使用这个方法，当多个数值的时候，只会返回第一个参数，多个参数可以使用getParameterVa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FistjieNote">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/FistjieNote/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JSP中的内置对象 是web对象创建的对象，不需要我们自己创建对象，名称是JSP的保留字，一共有九个内置对象  REQUEST(要考虑乱码问题)(请求) 实现HttpServletRequest接口   getParameter:返回字符串，从一个post表单中，当你确定这个数据只有一个数值的时候，可以使用这个方法，当多个数值的时候，只会返回第一个参数，多个参数可以使用getParameterVa">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-08T14:13:04.016Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="FistjieNote">
+<meta name="twitter:description" content="JSP中的内置对象 是web对象创建的对象，不需要我们自己创建对象，名称是JSP的保留字，一共有九个内置对象  REQUEST(要考虑乱码问题)(请求) 实现HttpServletRequest接口   getParameter:返回字符串，从一个post表单中，当你确定这个数据只有一个数值的时候，可以使用这个方法，当多个数值的时候，只会返回第一个参数，多个参数可以使用getParameterVa">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,172 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-2018_0705" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/08/2018_0705/" class="article-date">
-  <time datetime="2018-07-08T14:14:33.821Z" itemprop="datePublished">2018-07-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JSP中的内置对象"><a href="#JSP中的内置对象" class="headerlink" title="JSP中的内置对象"></a>JSP中的内置对象</h2><blockquote>
-<p>是web对象创建的对象，不需要我们自己创建对象，名称是JSP的保留字，一共有九个内置对象</p>
-</blockquote>
-<h3 id="REQUEST-要考虑乱码问题-请求"><a href="#REQUEST-要考虑乱码问题-请求" class="headerlink" title="REQUEST(要考虑乱码问题)(请求)"></a>REQUEST(要考虑乱码问题)(请求)</h3><blockquote>
-<p>实现<strong>HttpServletRequest</strong>接口</p>
-</blockquote>
-<ul>
-<li><p>getParameter:返回字符串，从一个post表单中，当你确定这个数据只有一个数值的时候，可以使用这个方法，当多个数值的时候，只会返回第一个参数，多个参数可以使用<strong>getParameterValuesd</strong></p>
-</li>
-<li><p><strong>setCharacterEncoding</strong>:overrrides覆盖了编码方式</p>
-<blockquote>
-<p><strong>对于post提交的乱码的处理方式</strong>request.setCharacterEncoding(“utf-8”)，在调用的时候要放在开始，只对post有<br>*　<strong>对于get提交的乱码方式的处理方法</strong></p>
-</blockquote>
-</li>
-</ul>
-<ol>
-<li>编码方式</li>
-</ol>
-<blockquote>
-<p>String(byte[] bytes,String charsetName)<br>name=new String (name.getBytes(“iso-8859-14”),”utf-8”)</p>
-<ol start="2">
-<li>修改server.xml文件，在tomat中</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector </span><br><span class="line">   			connectionTimeout=&quot;20000&quot; </span><br><span class="line">   			port=&quot;8888&quot; </span><br><span class="line">   			protocol=&quot;HTTP/1.1&quot; </span><br><span class="line">   			redirectPort=&quot;8443&quot;</span><br><span class="line">   			URIEncoding=&quot;UTF-8&quot;</span><br><span class="line">   		/&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>getParameterNames()</strong>,类似于迭代器</li>
-</ul>
-<blockquote>
-<p>将表单中的name的属性值，相同的只显示一边<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Enumeration&lt;string&gt; enums = request.getParameterNames();</span><br><span class="line"><span class="keyword">while</span>(enums.hasMoreElements())&#123;</span><br><span class="line">	String name = enums.nextElement();	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li><strong>getParameterterMap</strong>(name做key,value做值)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,String[]&gt; map= request.getParameterMap();</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>getMethod()</strong></li>
-</ul>
-<blockquote>
-<p>returns the name of the http method which this request was made 获取请求方式，http中请求方式必须大写，表单中则不区分大小写</p>
-</blockquote>
-<ul>
-<li><strong>getHeaderNames()</strong></li>
-</ul>
-<blockquote>
-<p>返回所有请求头信息<br>enemuration<string> enems = request.getHeaderNames();<br><strong>getHeader(enems.nextElement())</strong>可以获得信息，根据头部名称</string></p>
-</blockquote>
-<ul>
-<li><strong>getRequestURI()</strong>和<strong>getREquestURL()</strong></li>
-</ul>
-<blockquote>
-<p>/项目名/路径(相对路径)和绝对路径</p>
-</blockquote>
-<ul>
-<li><strong>getQueryString</strong>(重定向)</li>
-</ul>
-<blockquote>
-<p>可以得到url后边的数值，url重写的方式，来进行跳转，location.href=”succ.jsp”</p>
-</blockquote>
-<h3 id="RESPONSE（响应）"><a href="#RESPONSE（响应）" class="headerlink" title="RESPONSE（响应）"></a>RESPONSE（响应）</h3><ol>
-<li>sendRedirect()（重定向 3XX）</li>
-</ol>
-<blockquote>
-<p>sendRedirect(url?name=””&amp;pwd=””)<br><strong>表单方式和QueryString方式</strong></p>
-</blockquote>
-<ol start="2">
-<li><p>setContentType()</p>
-</li>
-<li><p>encodeURL()</p>
-</li>
-</ol>
-<h3 id="PageContext"><a href="#PageContext" class="headerlink" title="PageContext"></a>PageContext</h3><ol>
-<li><p>setAttribute(“”,””);</p>
-</li>
-<li><p>getAttribute(“”,””);</p>
-</li>
-</ol>
-<h3 id="session（浏览器与服务器之间的一次通话）"><a href="#session（浏览器与服务器之间的一次通话）" class="headerlink" title="session（浏览器与服务器之间的一次通话）"></a>session（浏览器与服务器之间的一次通话）</h3><blockquote>
-<p>provides a way to identify a user across more than one page request or visit to a Web site and to store information about that user.<br>在重定向之前需要对session进行获取，和浏览器一一对应的session.setAttribut(name,”name”);</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态包含</span></span><br><span class="line">&lt;%@ include file=<span class="string">"controller.jsp"</span>%&gt;</span><br><span class="line">controller.jsp:</span><br><span class="line">&lt;%</span><br><span class="line">String name = (String)session.getAttribute(<span class="string">"name"</span>);</span><br><span class="line"><span class="keyword">if</span>(name==<span class="keyword">null</span>)&#123;</span><br><span class="line">	response.sendRedirect(<span class="string">"login.jsp"</span>);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>产生会话，产生session,通过cookie机制，返回一个JSESSIONID</strong></p>
-<ul>
-<li><p>setAttribute</p>
-</li>
-<li><p>getAttribute</p>
-</li>
-<li><p>session.setMaxInactiveInterval(60);</p>
-<blockquote>
-<p>设置有效时长</p>
-</blockquote>
-</li>
-<li><p>session.invalidate()</p>
-<blockquote>
-<p>使session失效</p>
-</blockquote>
-</li>
-<li><p>web.xml中部署,设置有效时长为十分钟</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;session-config&gt;</span><br><span class="line"> 	&lt;session-timeout&gt;10&lt;/session-timeout&gt;</span><br><span class="line"> 	&lt;/session-config&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="application-服务器对象"><a href="#application-服务器对象" class="headerlink" title="application(服务器对象)"></a>application(服务器对象)</h3><h3 id="out（jspWriter）"><a href="#out（jspWriter）" class="headerlink" title="out（jspWriter）"></a>out（jspWriter）</h3><h3 id="config-配置对象"><a href="#config-配置对象" class="headerlink" title="config(配置对象)"></a>config(配置对象)</h3><h3 id="Page（java-lang-Object）"><a href="#Page（java-lang-Object）" class="headerlink" title="Page（java.lang.Object）"></a>Page（java.lang.Object）</h3><h3 id="Exception-java-lang-throwable"><a href="#Exception-java-lang-throwable" class="headerlink" title="Exception(java.lang.throwable)"></a>Exception(java.lang.throwable)</h3><h2 id="关于重定向与转发"><a href="#关于重定向与转发" class="headerlink" title="关于重定向与转发"></a>关于重定向与转发</h2><h3 id="sendRedirect-（重定向-3XX）"><a href="#sendRedirect-（重定向-3XX）" class="headerlink" title="sendRedirect()（重定向 3XX）"></a>sendRedirect()（重定向 3XX）</h3><blockquote>
-<p>sendRedirect(url?name=””&amp;pwd=””)</p>
-</blockquote>
-<h3 id="session-setAttribute-name-”name”"><a href="#session-setAttribute-name-”name”" class="headerlink" title="session.setAttribute(name,”name”);"></a>session.setAttribute(name,”name”);</h3><blockquote>
-<p>session.getAttribute(“name”)</p>
-</blockquote>
-<h3 id="转发"><a href="#转发" class="headerlink" title="转发"></a>转发</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"succ.jsp"</span>).forward(request,response);</span><br><span class="line"><span class="comment">//等价于&lt;java:forward&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
-<li><p>转发是在服务器段发挥作用，通过forward()将提交信息在多个页面间进行传递，客户端浏览器的地址栏不会显示出转向后的地址</p>
-</li>
-<li><p>重定向是在客户端发挥作用，通过请求新的地址实现页面转向，在地址栏中可以显示转向后的地址</p>
-</li>
-</ul>
-<h2 id="动作"><a href="#动作" class="headerlink" title="动作"></a>动作</h2><h3 id="包含"><a href="#包含" class="headerlink" title="包含"></a>包含</h3><ol>
-<li><p>静态包含</p>
-<p> &lt;%@ include file=””%&gt;<br> 先将文件包含进来，再进行统一的编译</p>
-</li>
-<li><p>动态包含</p>
-<p> <a href="jsp:include" target="_blank" rel="noopener">jsp:include</a><br> 先进行统一的编译，然后再将编译好的文件包含进来</p>
-</li>
-</ol>
-<h3 id="转发-1"><a href="#转发-1" class="headerlink" title="转发"></a>转发</h3><p>&lt;jsp:forward page=”XX.jsp”&gt;<br>&lt;/jsp:forward&gt;</p>
-<h2 id="作用域（set-getAttribute）"><a href="#作用域（set-getAttribute）" class="headerlink" title="作用域（set/getAttribute）"></a>作用域（set/getAttribute）</h2><ol>
-<li><p>pageContext:页面级，只能在本页面中取到数据，只要页面发生跳转，则无法获取数据，不论转发或者重定向都会失效</p>
-</li>
-<li><p>request:请求范围，只要在一次请求中，都可以拿到，但是重定向不可以</p>
-</li>
-<li><p>session:会话范围，只要在一次会话范围，session都有效，将浏览器关闭，就拿不到了</p>
-</li>
-<li><p>application:应用服务器范围，只要服务器不重启，application就一直有效</p>
-</li>
-</ol>
-<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><blockquote>
-<p>现象：曾经浏览过的物品</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"name"</span>,name);</span><br><span class="line"><span class="comment">//设置cookie的时间</span></span><br><span class="line">c.setMaxAge(<span class="number">3600</span>);</span><br><span class="line">response.addCookie(cookie);</span><br><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Cookie[] cs = request.getCookies();</span><br><span class="line"><span class="keyword">for</span>(Cookie c:cs)&#123;</span><br><span class="line">	out.print(c.getName()+<span class="string">"--&gt;"</span>+c.getValue()+<span class="string">"&lt;br/&gt;"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/08/2018_0705/" data-id="cjjcx6xx80000hsr55aaxn7jh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="psot-FistjieNote" class="article article-type-psot" itemscope itemprop="blogPost">
+        <section id="main"><article id="psot-FistjieNote" class="article article-type-psot" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/08/FistjieNote/" class="article-date">
   <time datetime="2018-07-08T14:11:21.000Z" itemprop="datePublished">2018-07-08</time>
@@ -238,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/08/FistjieNote/">FistjieNote</a>
+    <h1 class="article-title" itemprop="name">
+      FistjieNote
     </h1>
   
 
@@ -384,11 +223,23 @@
     </footer>
   </div>
   
-</article>
-
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/08/2018_0705/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
-
+</article>
 
 </section>
         
